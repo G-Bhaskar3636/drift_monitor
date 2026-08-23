@@ -1,3 +1,4 @@
+import numpy as np
 import pytest
 
 from drift_monitor.numerical import numerical_drift
@@ -61,4 +62,49 @@ def test_invalid_threshold():
             [1, 2, 3],
             [4, 5, 6],
             threshold=2
+        )
+
+def test_numerical_drift_invalid_threshold():
+
+    reference = [1, 2, 3, 4]
+    current = [1, 2, 3, 4]
+
+    with pytest.raises(
+        ValueError,
+        match="threshold must be between 0 and 1."
+    ):
+        numerical_drift(
+            reference,
+            current,
+            threshold=0
+        )
+
+
+def test_numerical_drift_reference_only_nan():
+
+    reference = [np.nan, np.nan, np.nan]
+    current = [1, 2, 3]
+
+    with pytest.raises(
+        ValueError,
+        match="Reference data contains only NaN values."
+    ):
+        numerical_drift(
+            reference,
+            current
+        )
+
+
+def test_numerical_drift_current_only_nan():
+
+    reference = [1, 2, 3]
+    current = [np.nan, np.nan, np.nan]
+
+    with pytest.raises(
+        ValueError,
+        match="Current data contains only NaN values."
+    ):
+        numerical_drift(
+            reference,
+            current
         )

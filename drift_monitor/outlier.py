@@ -24,7 +24,6 @@ def detect_outliers(
             "multiplier must be greater than 0."
         )
 
-    # Select numerical columns
     numerical_columns = df.select_dtypes(
         include="number"
     ).columns
@@ -33,10 +32,8 @@ def detect_outliers(
 
     for column in numerical_columns:
 
-        # Remove missing values
         data = df[column].dropna()
 
-        # Need enough values
         if len(data) < 4:
             report[column] = {
                 "status": "insufficient_data",
@@ -46,14 +43,11 @@ def detect_outliers(
 
             continue
 
-        # Calculate Q1 and Q3
         q1 = data.quantile(0.25)
         q3 = data.quantile(0.75)
 
-        # Calculate IQR
         iqr = q3 - q1
 
-        # Calculate bounds
         lower_bound = (
             q1 - multiplier * iqr
         )
@@ -62,7 +56,6 @@ def detect_outliers(
             q3 + multiplier * iqr
         )
 
-        # Find outliers
         outliers = data[
             (data < lower_bound)
             | (data > upper_bound)
