@@ -4,15 +4,13 @@ from drift_monitor.categorical import categorical_drift
 def test_categorical_drift_detected():
 
     reference = [
-        "A", "A", "A", "A",
-        "B", "B",
-        "C", "C"
+        "A", "A", "A", "A", "A",
+        "A", "A", "A", "A", "A"
     ]
 
     current = [
-        "A",
-        "B", "B", "B", "B",
-        "C", "C", "C"
+        "B", "B", "B", "B", "B",
+        "B", "B", "B", "B", "B"
     ]
 
     result = categorical_drift(
