@@ -107,7 +107,7 @@ def monitor_data(
     # -------------------------
 
     categorical_columns = reference.select_dtypes(
-        include=["object", "category"]
+        include=["object", "category", "str"]
     ).columns
 
     for column in categorical_columns:
