@@ -60,5 +60,5 @@ def numerical_drift(
     return {
         "statistic": statistic,
         "p_value": p_value,
-        "drift_detected": drift_detected
+        "drift_detected": bool(drift_detected)
     }
