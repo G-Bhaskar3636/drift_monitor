@@ -514,7 +514,31 @@ Then:
 ```bash
 git push origin main
 ```
+---
+```text
+[![PyPI version](https://img.shields.io/pypi/v/drift-monitor-bhaskar.svg)](https://pypi.org/project/drift-monitor-bhaskar/)
+[![Python Versions](https://img.shields.io/pypi/pyversions/drift-monitor-bhaskar.svg)](https://pypi.org/project/drift-monitor-bhaskar/)
+```
+## Installation
 
+Install the published package from PyPI using `pip`:
+
+```bash
+pip install drift-monitor-bhaskar
+```
+
+## Usage & Import
+
+Import the package into your Python scripts or Jupyter Notebooks:
+
+```python
+import drift_monitor as dm
+
+# Initialize the drift monitor
+monitor = dm.DriftMonitor()
+```
+
+*Note:* The import package name uses an underscore `drift_monitor` in Python code, whereas the `pip install` package name uses dashes and your suffix `drift-monitor-bhaskar`.)
 ---
 ## ‍💻 Author
 
