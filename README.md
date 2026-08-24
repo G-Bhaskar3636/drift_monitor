@@ -479,6 +479,43 @@ Planned improvements include:
 This project is licensed under the MIT License.
 
 ---
+## 🐳 Docker
+
+The project can be run inside a Docker container to provide a consistent Python environment.
+
+### Build the Docker image
+
+```bash
+docker build -t drift-monitor .
+```
+
+### Run the tests inside Docker
+```bash
+docker run --rm drift-monitor
+```
+
+The container automatically runs the project's test suite.
+
+---
+## Commit it
+
+After testing:
+
+```bash
+git add Dockerfile README.md
+```
+
+Then:
+```bash
+git commit -m "Add Docker support"
+```
+
+Then:
+```bash
+git push origin main
+```
+
+---
 ## ‍💻 Author
 
 ### Bhaskar Gangapuram
