@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "drift-monitor-bhaskar"
-version = "0.1.0"
+version = "0.2.0"
 description = "A Python library for ML data drift and data quality monitoring"
 readme = "README.md"
 requires-python = ">=3.9"
@@ -19,3 +19,9 @@ dependencies = [
 
 [project.scripts]
 drift-monitor = "drift_monitor.cli:main"
+
+[tool.pytest.ini_options]
+filterwarnings = [
+    "ignore::UserWarning",
+    "ignore::RuntimeWarning",
+]

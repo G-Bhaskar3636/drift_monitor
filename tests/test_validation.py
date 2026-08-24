@@ -35,3 +35,12 @@ def test_reference_not_iterable():
 def test_current_not_iterable():
     with pytest.raises(TypeError):
         validate_input([1, 2, 3], 123)
+
+def test_validation_string_input():
+    with pytest.raises(TypeError):
+        validate_input("invalid_str", [1, 2, 3])
+
+
+def test_validation_invalid_type():
+    with pytest.raises(TypeError):
+        validate_input([1, 2, 3], "invalid_str")
